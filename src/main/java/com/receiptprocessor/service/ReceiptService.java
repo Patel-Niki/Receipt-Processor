@@ -17,7 +17,7 @@ public class ReceiptService {
     public String processReceipt(Receipt receipt) {
         String id = UUID.randomUUID().toString();
         int points = calculatePoints(receipt);
-        repository.saveReceipt(id, points);
+        repository.saveReceipt(id, receipt, points);
         return id;
     }
 
