@@ -24,7 +24,7 @@ public class ReceiptController {
     public ResponseEntity<?> processReceipt(@Valid @RequestBody Receipt receipt, BindingResult result) {
         if (result.hasErrors()) {
             StringBuilder receiptError = new StringBuilder("The receipt is invalid: ");
-            result.getAllErrors().forEach(error -> receiptError.append(error.getDefaultMessage()).append(""));
+            result.getAllErrors().forEach(error -> receiptError.append(error.getDefaultMessage()).append(", "));
             return ResponseEntity.badRequest().body(new ErrorResponse(receiptError.toString()));
         }
 
@@ -36,8 +36,7 @@ public class ReceiptController {
     public ResponseEntity<?> getPoints(@PathVariable String id) {
         Integer points = service.getPoints(id);
         if (points == null) {
-            StringBuilder pointsError = new StringBuilder("No receipt found for that ID");
-            return ResponseEntity.badRequest().body(new ErrorResponse(pointsError.toString()));
+            return ResponseEntity.badRequest().body(new ErrorResponse("No receipt found for that ID"));
         }
         return ResponseEntity.ok(new PointsResponse(points));
     }
