@@ -112,7 +112,7 @@ GET /receipts/12345-abcdef/points
 - **404 Not Found:** Receipt ID not found.
 
 ## How to Test the API
-### Using curl: (make sure you are in your project root directory)
+### Using curl: (make sure you are in your project root directory and modify receipt.json for desired input) 
 ```bash
 curl -X POST http://localhost:8080/receipts/process \
 -H "Content-Type: application/json" \
