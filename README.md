@@ -31,9 +31,12 @@ receipt-processor/
 ## Requirements
 - **Maven**
 - **Java 17 or higher**
-            OR
-(if you do not have maven or Java installed in your system)
-- **Docker**(to containerized and test the application)
+
+OR
+
+(if you do not have Maven or Java installed in your system)
+
+- **Docker** (to containerize and test the application)
 
 ## Steps to build the project
 ### Using Docker
